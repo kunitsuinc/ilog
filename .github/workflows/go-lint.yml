@@ -34,7 +34,7 @@ jobs:
     outputs:
       skip: ${{ steps.paths-ignore.outputs.skip }}
     steps:
-      - uses: kunitsucom/github-actions-paths-ignore-alternative@v0.0.2
+      - uses: kunitsucom/github-actions-paths-ignore-alternative@v0.0.4
         id: paths-ignore
         with:
           paths-ignore: |-
@@ -118,7 +118,7 @@ jobs:
         run: |
           direnv exec . go mod tidy
           git diff --exit-code go.mod go.sum
-      - uses: golangci/golangci-lint-action@v6.0.1 # ref. https://github.com/golangci/golangci-lint-action#how-to-use
+      - uses: golangci/golangci-lint-action@v6.1.0 # ref. https://github.com/golangci/golangci-lint-action#how-to-use
         with:
           working-directory: ${{ env.WORKDIR }}
           args: --timeout=600s
